@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TpsXamarin.MainPage">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" VerticalOptions="Start" Padding="10, 25, 10, 25">
+            <Label Text="Nouveau" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"></Label>
+            <Label Text="Accueil"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Rechercher"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="EndAndExpand"></Label>
+        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand" Margin="10">
+            <StackLayout VerticalOptions="Start" Orientation="Vertical">
+                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                    <BoxView BackgroundColor="Black" WidthRequest="75"></BoxView>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label>@NomDeLapersonne</Label>
+                        <Label>Je n'ai jamais fait de tweet, mais il parait que cela ressemble à ça. Dans l'exemple il y a un Lorem Ipsum, mais bon une recherche / une phras à écrire, ça va aussi vite !!.</Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                    <Label Text="Répondre"
+                           HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="Retweet"
+                           HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="Favoris"
+                           HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+                <StackLayout HeightRequest="3" BackgroundColor="Gray">
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal" HeightRequest="75" VerticalOptions="End">
+            <Label Text="Fil" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Notification" 
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Messages" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Moi" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"></Label>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
