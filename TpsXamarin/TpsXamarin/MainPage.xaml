@@ -3,20 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:TpsXamarin.Utils"
              mc:Ignorable="d"
+
              x:Class="TpsXamarin.MainPage">
 
-    <StackLayout>
+    <StackLayout Orientation="Vertical">
+        <!-- Place new controls here -->
         <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" VerticalOptions="Start" Padding="10, 25, 10, 25">
-            <Label Text="Nouveau" 
+            <ImageButton Source="{utils:ImageResource TpsXamarin.images.pencil.png}"
+                    BackgroundColor="#58B0F0"></ImageButton>
+            <Button Text="Accueil"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    FontSize="20"
                    VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="StartAndExpand"></Label>
-            <Label Text="Accueil"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand"></Label>
-            <Label Text="Rechercher"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="EndAndExpand"></Label>
+                   HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#58B0F0"></Button>
+            <ImageButton Source="{utils:ImageResource TpsXamarin.images.search.png}"
+                    BackgroundColor="#58B0F0"></ImageButton>
+        </StackLayout>
+        <StackLayout>
+            <Label Text="Connexion à Twitter"
+                   HorizontalTextAlignment="Center"/>
+            <Entry Placeholder="Identifiant Twitter"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="FillAndExpand"/>
+            <Entry Placeholder="Mot de passe"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="FillAndExpand"/>
+            <StackLayout>
+                <Switch OnColor="Pink"/>
+            </StackLayout>
+            
+
         </StackLayout>
         <ScrollView VerticalOptions="FillAndExpand" Margin="10">
             <StackLayout VerticalOptions="Start" Orientation="Vertical">
@@ -28,12 +48,15 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                    <Label Text="Répondre"
-                           HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Text="Retweet"
-                           HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Text="Favoris"
-                           HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="{utils:ImageResource TpsXamarin.images.reply.png}"
+                           HorizontalOptions="CenterAndExpand"
+                            BackgroundColor="White"></ImageButton>
+                    <ImageButton Source="{utils:ImageResource TpsXamarin.images.retweet.png}"
+                           HorizontalOptions="CenterAndExpand"
+                            BackgroundColor="White"></ImageButton>
+                    <ImageButton Source="{utils:ImageResource TpsXamarin.images.favorite.png}"
+                           HorizontalOptions="CenterAndExpand"
+                            BackgroundColor="White"></ImageButton>
                 </StackLayout>
                 <StackLayout HeightRequest="3" BackgroundColor="Gray">
                 </StackLayout>
@@ -53,6 +76,7 @@
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"></Label>
         </StackLayout>
+
     </StackLayout>
 
 </ContentPage>

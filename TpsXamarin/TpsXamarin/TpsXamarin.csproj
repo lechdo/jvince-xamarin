@@ -11,6 +11,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\favorite.png" />
+    <None Remove="images\pencil.png" />
+    <None Remove="images\reply.png" />
+    <None Remove="images\retweet.png" />
+    <None Remove="images\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="images\favorite.png" />
+    <EmbeddedResource Include="images\pencil.png" />
+    <EmbeddedResource Include="images\reply.png" />
+    <EmbeddedResource Include="images\retweet.png" />
+    <EmbeddedResource Include="images\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
