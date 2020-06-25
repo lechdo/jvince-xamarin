@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using TpsXamarin.Entities;
+using TpsXamarin.Services;
 using Xamarin.Forms;
 
 namespace TpsXamarin.Models
 {
     class LoginFormModel
     {
+        private readonly ITwitterService twitterService;
         public Entry Login { get; set; }
         public Entry Password { get; set; }
         public Xamarin.Forms.Switch IsRemind { get; set; }
         public ViewSwitch ViewSwitch { get; set; }
         public ErrorFormModel ErrorForm { get; set; }
 
+        private User user;
+
         public LoginFormModel(Entry login, Entry password, Xamarin.Forms.Switch isRemind, View loginForm, View tweetForm, Label errorLabel, Button button)
         {
+            this.twitterService = new TwitterService();
             this.Login = login;
             this.Password = password;
             this.IsRemind = isRemind;
@@ -30,8 +36,18 @@ namespace TpsXamarin.Models
             Debug.WriteLine("Button clicked");
             if (this.IsValid())
             {
-                this.ErrorForm.ErrorLabel.IsVisible = false;
-                this.ViewSwitch.Switch();
+                if (twitterService.Authenticate(this.user))
+                {
+                    this.ErrorForm.ErrorLabel.IsVisible = false;
+                    this.ViewSwitch.Switch();
+                }
+                else
+                {
+                    this.ErrorForm.Error = "utilisateur inconnu";
+                    this.ErrorForm.Show();
+                }
+
+                
             }
         }
 
@@ -39,21 +55,23 @@ namespace TpsXamarin.Models
         {
             Boolean result = true;
 
-            String login = this.Login.Text;
-            String password = this.Password.Text;
+            User user = new User();
+            user.Pseudo = Login.Text;
+            user.Password = Password.Text;
+            
             Boolean isRemind = this.IsRemind.IsToggled;
 
             StringBuilder sb = new StringBuilder();
             bool haveAlreadyAnError = false;
             String rollBack = "\n";
 
-            if (String.IsNullOrEmpty(login) || login.Length < 3)
+            if (String.IsNullOrEmpty(user.Pseudo) || user.Pseudo.Length < 3)
             {
                 sb.Append("l'identifiant doit être supérieur à 3 caractères.");
                 haveAlreadyAnError = true;
             }
 
-            if (String.IsNullOrEmpty(password) || password.Length <6)
+            if (String.IsNullOrEmpty(user.Password) || user.Password.Length <6)
             {
                 if (haveAlreadyAnError)
                 {
@@ -70,6 +88,7 @@ namespace TpsXamarin.Models
             }
 
             result = !haveAlreadyAnError;
+            this.user = user;
 
             return result;
         }
