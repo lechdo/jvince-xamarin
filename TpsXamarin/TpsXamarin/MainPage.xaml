@@ -23,22 +23,26 @@
             <ImageButton Source="{utils:ImageResource TpsXamarin.images.search.png}"
                     BackgroundColor="#58B0F0"></ImageButton>
         </StackLayout>
-        <StackLayout>
+        <StackLayout x:Name="loginForm">
             <Label Text="Connexion à Twitter"
                    HorizontalTextAlignment="Center"/>
-            <Entry Placeholder="Identifiant Twitter"
+            <Entry x:Name="login" Placeholder="Identifiant Twitter"
                    PlaceholderColor="Gray"
                    HorizontalOptions="FillAndExpand"/>
-            <Entry Placeholder="Mot de passe"
+            <Entry x:Name="password" Placeholder="Mot de passe"
                    PlaceholderColor="Gray"
                    HorizontalOptions="FillAndExpand"/>
-            <StackLayout>
-                <Switch OnColor="Pink"/>
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name="isRemind" OnColor="Pink"/>
+                <Label Text="Mémoriser mes informations" 
+                       TextColor="gray" 
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            
+            <Label x:Name="errorLabel"/>
+            <Button x:Name="btnConnexion" Text="Se connecter" HorizontalOptions="FillAndExpand"/>
 
         </StackLayout>
-        <ScrollView VerticalOptions="FillAndExpand" Margin="10">
+        <ScrollView x:Name="tweetForm" VerticalOptions="FillAndExpand" Margin="10">
             <StackLayout VerticalOptions="Start" Orientation="Vertical">
                 <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
                     <BoxView BackgroundColor="Black" WidthRequest="75"></BoxView>

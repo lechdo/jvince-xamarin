@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TpsXamarin.Models;
 using Xamarin.Forms;
 
 namespace TpsXamarin
@@ -16,6 +17,7 @@ namespace TpsXamarin
         public MainPage()
         {
             InitializeComponent();
+            new LoginFormModel(this.login, this.password, this.isRemind, this.loginForm, this.tweetForm, this.errorLabel, this.btnConnexion);
         }
     }
 }
