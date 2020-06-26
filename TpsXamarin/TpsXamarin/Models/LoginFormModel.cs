@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using TpsXamarin.Entities;
 using TpsXamarin.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace TpsXamarin.Models
@@ -34,21 +35,29 @@ namespace TpsXamarin.Models
         private void ButtonClicked(Object sender, EventArgs eventArgs)
         {
             Debug.WriteLine("Button clicked");
-            if (this.IsValid())
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                if (twitterService.Authenticate(this.user))
+                if (this.IsValid())
                 {
-                    this.ErrorForm.ErrorLabel.IsVisible = false;
-                    this.ViewSwitch.Switch();
+                    if (twitterService.Authenticate(this.user))
+                    {
+                        this.ErrorForm.ErrorLabel.IsVisible = false;
+                        this.ViewSwitch.Switch();
+                    }
+                    else
+                    {
+                        this.ErrorForm.Error = "utilisateur inconnu";
+                        this.ErrorForm.Show();
+                    }
                 }
-                else
-                {
-                    this.ErrorForm.Error = "utilisateur inconnu";
-                    this.ErrorForm.Show();
-                }
-
-                
             }
+            else
+            {
+                ErrorForm.Error = "Veuillez vous connecter à internet";
+                ErrorForm.Show();
+            }
+
+            
         }
 
         public Boolean IsValid()
