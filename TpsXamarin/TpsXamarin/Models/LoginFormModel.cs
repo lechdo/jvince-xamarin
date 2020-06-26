@@ -4,12 +4,13 @@ using System.Diagnostics;
 using System.Text;
 using TpsXamarin.Entities;
 using TpsXamarin.Services;
+using TpsXamarin.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace TpsXamarin.Models
 {
-    class LoginFormModel
+    public class LoginFormModel
     {
         private readonly ITwitterService twitterService;
         public Entry Login { get; set; }
@@ -20,13 +21,15 @@ namespace TpsXamarin.Models
 
         private User user;
 
-        public LoginFormModel(Entry login, Entry password, Xamarin.Forms.Switch isRemind, View loginForm, View tweetForm, Label errorLabel, Button button)
+        public INavigation Navigation { get; set; }
+
+        public LoginFormModel(Entry login, Entry password, Xamarin.Forms.Switch isRemind, Label errorLabel, Button button, INavigation navigation)
         {
+            this.Navigation = navigation;
             this.twitterService = new TwitterService();
             this.Login = login;
             this.Password = password;
             this.IsRemind = isRemind;
-            this.ViewSwitch = new ViewSwitch(loginForm, tweetForm);
             this.ErrorForm = new ErrorFormModel(errorLabel);
             button.Clicked += ButtonClicked;
 
@@ -42,7 +45,7 @@ namespace TpsXamarin.Models
                     if (twitterService.Authenticate(this.user))
                     {
                         this.ErrorForm.ErrorLabel.IsVisible = false;
-                        this.ViewSwitch.Switch();
+                        this.Navigation.PushAsync(new TweetsListView());
                     }
                     else
                     {

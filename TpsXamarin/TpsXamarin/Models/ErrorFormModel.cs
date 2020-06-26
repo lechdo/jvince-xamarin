@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace TpsXamarin.Models
 {
-    class ErrorFormModel
+    public class ErrorFormModel
     {
         public Label ErrorLabel { get; set; }
         public String Error { get; set; }

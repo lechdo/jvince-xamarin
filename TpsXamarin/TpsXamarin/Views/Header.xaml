@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:TpsXamarin.Utils"
+             mc:Ignorable="d"
+             x:Class="TpsXamarin.Views.Header">
+  <ContentView.Content>
+        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" VerticalOptions="Start" Padding="10, 25, 10, 25">
+            <ImageButton Source="{utils:ImageResource TpsXamarin.images.pencil.png}"
+                    BackgroundColor="#58B0F0"></ImageButton>
+            <Button Text="Accueil"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    FontSize="20"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#58B0F0"></Button>
+            <ImageButton Source="{utils:ImageResource TpsXamarin.images.search.png}"
+                    BackgroundColor="#58B0F0"></ImageButton>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

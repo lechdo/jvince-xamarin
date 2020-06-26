@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:TpsXamarin.Utils"
+             xmlns:views="clr-namespace:TpsXamarin.Views"
+             mc:Ignorable="d"
+             x:Class="TpsXamarin.Views.TweetsListView">
+
+    <StackLayout>
+        <views:Header/>
+        <ScrollView>
+            <ListView x:Name="TweetsList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                                    <Image x:Name="image" WidthRequest="75"/>
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding User.Name}"/>
+                                        <Label Text="{Binding Text}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                                    <ImageButton Source="{utils:ImageResource TpsXamarin.images.reply.png}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                    BackgroundColor="White"></ImageButton>
+                                    <ImageButton Source="{utils:ImageResource TpsXamarin.images.retweet.png}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                    BackgroundColor="White"></ImageButton>
+                                    <ImageButton Source="{utils:ImageResource TpsXamarin.images.favorite.png}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                    BackgroundColor="White"></ImageButton>
+                                </StackLayout>
+                                <StackLayout HeightRequest="3" BackgroundColor="Gray">
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <views:Footer/>
+    </StackLayout>
+</ContentPage>

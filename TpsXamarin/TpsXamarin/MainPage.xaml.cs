@@ -17,7 +17,7 @@ namespace TpsXamarin
         public MainPage()
         {
             InitializeComponent();
-            new LoginFormModel(this.login, this.password, this.isRemind, this.loginForm, this.tweetForm, this.errorLabel, this.btnConnexion);
+            //new LoginFormModel(this.login, this.password, this.isRemind, this.loginForm, this.tweetForm, this.errorLabel, this.btnConnexion);
         }
     }
 }

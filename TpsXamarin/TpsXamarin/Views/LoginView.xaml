@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:TpsXamarin.Views"
+             mc:Ignorable="d"
+             x:Class="TpsXamarin.Views.LoginView">
+
+    <StackLayout>
+        <views:Header/>
+        <StackLayout VerticalOptions="FillAndExpand" Margin="10">
+            <Label Text="Connexion à Twitter"
+                       HorizontalTextAlignment="Center"/>
+            <Entry x:Name="login" Placeholder="Identifiant Twitter"
+                       PlaceholderColor="Gray"
+                       HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="password" Placeholder="Mot de passe"
+                       PlaceholderColor="Gray"
+                       HorizontalOptions="FillAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name="isRemind" OnColor="Pink"/>
+                <Label Text="Mémoriser mes informations" 
+                           TextColor="gray" 
+                           HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <Label x:Name="errorLabel"/>
+            <Button x:Name="button" Text="Se connecter" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <views:Footer/>
+    </StackLayout>
+
+</ContentPage>
